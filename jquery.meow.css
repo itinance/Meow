@@ -106,3 +106,43 @@
     opacity: 0.75;
     zoom: 1;
 }
+
+/* customization for this fork */
+
+.meow .inner {
+    background-color: #e6e3df;
+    opacity: 1;
+    box-shadow: 0px 0px 21px -1px rgba(0, 0, 0, 0.75);
+    text-shadow: none;
+    color: #a8a4a2;
+}
+.meow .inner h1 {
+    color: #242120;
+    text-shadow: none;
+    margin-bottom: 10px;
+}
+.meow ul {
+    margin-top: 20px;
+    list-style-type: none;
+    border-bottom: 1px solid #a8a4a2;
+}
+.meow ul li {
+    list-style-type: none;
+    float: left;
+    height: 27px;
+    padding-top: 10px;
+    width: 47%;
+    text-align: center;
+}
+.meow ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #242120;
+    font-size: 14px;
+    white-space: nowrap;
+    font-weight: bold;
+}
+.meow ul li:last-child {
+    border-left: 1px solid #a8a4a2;
+    padding-left: 0.8em;
+}
