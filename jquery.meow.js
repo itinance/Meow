@@ -48,6 +48,9 @@
                 this.container = default_meow_area;
             }
 
+            if (typeof options.hideAndForgetCallback !== 'undefined') {
+                this.hideAndForgetCallback = options.hideAndForgetCallback;
+            }
 
             if (typeof options.title === 'string') {
                 this.title = options.title;
@@ -81,7 +84,7 @@
                 options.beforeCreate.call(that);
             }
 
-            var buttons = '<ul><li><a class="closeMeow" href="#">Schließen</a></li><li><a class="" href="#">Nicht mehr anzeigen</a></li></ul>';
+            var buttons = '<ul><li><a class="closeMeow" href="#">Schließen</a></li><li><a class="hideAndForget" href="#">Nicht mehr anzeigen</a></li></ul>';
 
             var innerBox = $(window.document.createElement('div')).addClass('inner').html(this.message + buttons);
 
@@ -120,6 +123,11 @@
                     e.preventDefault();
                     that.destroy();
                 });
+
+                $('.hideAndForget').click(function(e) {
+                    e.preventDefault();
+                    that.hideAndForget();
+                });
             }
 
             this.manifest.bind('mouseenter mouseleave', function (event) {
@@ -152,6 +160,18 @@
                     }
                 }, that.duration);
             }
+
+            this.hideAndForget = function() {
+                try {
+                    if(typeof this.hideAndForgetCallback !== 'undefined') {
+                        this.hideAndForgetCallback();
+                    }
+                }
+                catch(e) {
+                    alert(e);
+                }
+                that.destroy();
+            };
 
             this.destroy = function () {
                 if (that.destroyed !== true) {

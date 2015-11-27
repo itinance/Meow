@@ -19,6 +19,9 @@
                 $.meow({
                     title: 'The Headline',
                     message: $('#onclick'),
+                    hideAndForgetCallback: function() {
+                        alert("Hide and forget callback called");
+                    }
                 });
             });
             $('#onchange').change(function() {
