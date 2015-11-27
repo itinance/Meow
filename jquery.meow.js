@@ -81,7 +81,7 @@
                 options.beforeCreate.call(that);
             }
 
-            var buttons = '<ul><li><a class="" href="#">Schließen</a></li><li><a class="" href="#">Nicht mehr anzeigen</a></li></ul>';
+            var buttons = '<ul><li><a class="closeMeow" href="#">Schließen</a></li><li><a class="" href="#">Nicht mehr anzeigen</a></li></ul>';
 
             var innerBox = $(window.document.createElement('div')).addClass('inner').html(this.message + buttons);
 
@@ -115,16 +115,11 @@
             // Add close button if the meow isn't uncloseable
             // TODO: this close button needs to be much prettier
             if (options.closeable !== false) {
-                this.manifest.find('.inner').prepend(
-                    /*          $(window.document.createElement('a'))
-                     .addClass('close')
-                     .html('&times;')
-                     .attr('href', '#close-meow-' + that.timestamp)
-                     .click(function (e) {
-                     e.preventDefault();
-                     that.destroy();
-                     }) */
-                );
+
+                $('.closeMeow').click( function(e) {
+                    e.preventDefault();
+                    that.destroy();
+                });
             }
 
             this.manifest.bind('mouseenter mouseleave', function (event) {
