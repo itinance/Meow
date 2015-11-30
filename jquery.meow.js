@@ -76,7 +76,7 @@
             if (options.sticky) {
                 this.duration = Infinity;
             } else {
-                this.duration = options.duration || 5000009;
+                this.duration = options.duration || 5000;
             }
 
             // Call callback if it's defined (this = meow object)
