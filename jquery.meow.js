@@ -26,6 +26,7 @@
         Meow = function (options) {
             var that = this;
 
+            this.dataId = null;
             this.timestamp = new Date().getTime();  // used to identify this meow and timeout
             this.hovered = false;                   // whether mouse is over or not
 
@@ -54,6 +55,10 @@
 
             if (typeof options.title === 'string') {
                 this.title = options.title;
+            }
+
+            if (typeof options.dataId !== 'undefined') {
+                this.dataId = options.dataId;
             }
 
             if (typeof options.message === 'string') {
@@ -164,7 +169,7 @@
             this.hideAndForget = function() {
                 try {
                     if(typeof this.hideAndForgetCallback !== 'undefined') {
-                        this.hideAndForgetCallback();
+                        this.hideAndForgetCallback(this.dataId);
                     }
                 }
                 catch(e) {
